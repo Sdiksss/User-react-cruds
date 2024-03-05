@@ -14,13 +14,14 @@ const FormUser = ({createUser, userUpdate, updateUser, setUserUpdate, setIsFormC
         if(userUpdate) {
             //update
             updateUser(userUpdate.id, data)
+            setUserUpdate()
         } else {
             // Crear
             createUser(data)
         }
 
 
-        createUser(data)
+        //createUser(data)
         reset({
             email: "",
             password: "",

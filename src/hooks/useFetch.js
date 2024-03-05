@@ -9,8 +9,18 @@ const useFetch = (baseUrl) => {
 
     //READ 
 
-    const getApi = ( ) => {
+    const getApi = (id) => {    
         const url = `${baseUrl}/users/`
+        axios.get(url)
+            .then(res => setResponse(res.data))
+            .catch(err => console.log(err))
+
+    }
+
+     //READ ONE
+
+     const getApiOne = ( id) => {
+        const url = `${baseUrl}/users/${id}`
         axios.get(url)
             .then(res => setResponse(res.data))
             .catch(err => console.log(err))
@@ -32,7 +42,7 @@ const useFetch = (baseUrl) => {
     //DELETE 
 
     const deleteApi = (id) => {
-        const url = `${baseUrl}/users/${id}/`
+        const url = `${baseUrl}/users/${id}`
         axios.delete(url)
             .then(res => {
                 console.log(res.data)
@@ -52,7 +62,7 @@ const useFetch = (baseUrl) => {
                 setResponse(response.map(user => user.id === id ? res.data : user))
             })
     }
-  return [response, getApi, creatApi, deleteApi, updateApi ]
+  return [response, getApi, creatApi, deleteApi, updateApi, getApiOne ]
 }
 
 export default useFetch

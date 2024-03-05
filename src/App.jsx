@@ -11,9 +11,9 @@ function App() {
 
   const [isFormClose, setIsFormClose] = useState(true)  //oper close form
 
-  const baseUrl = "https://users-crud.academlo.tech"
+  const baseUrl = "https://users-crud-0gou.onrender.com"
 
-  const [ users, getUsers, createUser, deleteUser, updateUser ] = useFetch(baseUrl)
+  const [ users, getUsers, getUsersOne , createUser, deleteUser, updateUser ] = useFetch(baseUrl)
 
 
   useEffect(( ) => {
@@ -25,7 +25,7 @@ function App() {
     setIsFormClose(false)
   }   //  abrir form
 
-  console.log(users)
+  // console.log(users) //NO IMPRIMIR POR EL PASSWORD
   return (
     <div className='user__container'>
       <div className='user__header'>  
